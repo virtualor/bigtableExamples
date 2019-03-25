@@ -4,6 +4,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.*;
 import org.junit.Test;
 
 import java.io.FileInputStream;
@@ -43,4 +44,19 @@ public class POITest {
         workbook.close();
         fileInputStream.close();
     }
+
+
+    @Test
+    public void readFrom03And07() throws Exception{
+        FileInputStream fileInputStream = new FileInputStream("D:\\test\\test.xlsx");
+        Workbook workbook = WorkbookFactory.create(fileInputStream);
+        Sheet sheet = workbook.getSheetAt(0);
+        Row row = sheet.getRow(2);
+        Cell cell = row.getCell(2);
+        String value = cell.getStringCellValue();
+        System.out.println(value);
+        workbook.close();
+        fileInputStream.close();
+    }
+
 }
