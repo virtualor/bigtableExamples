@@ -97,5 +97,11 @@ public class AvgPvServiceImpl implements AvgPvService{
         return beanJson;
     }
 
+    @Override
+    public List<TAvgpvNum> findAll() {
+        TAvgpvNumExample example = new TAvgpvNumExample();
+        return mapper.selectByExample(example);
+    }
+
 
 }
